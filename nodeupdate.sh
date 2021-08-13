@@ -30,7 +30,7 @@ echo "\n\nStarting Centre Create or Update Script Targeted Software Credits Bloc
 #Function Declerations
 
 CreateNode () {
-  echo "Creating New Node"
+  echo "Installing Node Software"
 }
 
 UpdateNode () {
