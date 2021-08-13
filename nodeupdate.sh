@@ -1,8 +1,8 @@
 #!/bin/bash
 #Variables
-SERVICE_NODE="node2"
+SERVICE_NODE="node"
 SERVICE_SC="java"
-FOLDERNAME='csnode1'
+FOLDERNAME='csnode'
 #Colors for Console
 RED='\033[0;31m'
 LRED='\033[0;31m'
@@ -31,10 +31,60 @@ echo "\n\nStarting Centre Create or Update Script Targeted Software Credits Bloc
 
 CreateNode () {
   echo "Installing Node Software"
+  mkdir tempnodecentre
+  cd tempnodecentre
+  echo "Downloading Latest software"
+  curl -s https://api.github.com/repos/CREDITSCOM/node/releases/latest \
+| grep "browser_download_url.*tar.gz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -qi -
+  
+  tarball="$(find . -name "Linux_Mainnet*.tar.gz")"
+  echo "Latest software is downloaded : $tarball"
+  cd ..
+  echo "Extracting : $tarball"
+  tar -xzf tempnodecentre/$tarball
+  echo "Setting permissions for $FOLDERNAME"
+  chmod -R 775 $FOLDERNAME
+  echo "Deleting temporary directory\n"
+  sudo rm -rf tempnodecentre
+  echo "${WHITE}Installation of the Credits Node is a success !${NC}\n"
+  echo "${WHITE}To Start the node do the following first command: cd $FOLDERNAME${NC}\n"
+  echo "${WHITE}To Start the node do the following second command: ./node${NC}\n"
 }
 
 UpdateNode () {
-  echo "Updating current node"
+  mkdir tempnodecentre
+  cd tempnodecentre
+  echo "Downloading Latest software"
+  curl -s https://api.github.com/repos/CREDITSCOM/node/releases/latest \
+| grep "browser_download_url.*tar.gz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -qi -
+  tarball="$(find . -name "Linux_Mainnet*.tar.gz")"
+  echo "Latest software is downloaded : $tarball"
+  echo "Do you want to update the node with this version yes or no ? : $tarball"
+  read answer
+  if [ "$answer" = "yes" ]
+    then 
+        cd ..
+        echo "Extracting : $tarball"
+        tar -xzf tempnodecentre/$tarball
+        echo "Setting permissions for $FOLDERNAME"
+        chmod -R 775 $FOLDERNAME
+        echo "Deleting temporary directory\n"
+        rm -rf tempnodecentre
+        echo "${WHITE}Updating of the Credits Node is a success !${NC}\n"
+        echo "${WHITE}To Start the node do the following first command: cd $FOLDERNAME${NC}\n"
+        echo "${WHITE}To Start the node do the following second command: ./node${NC}\n"
+    else
+        echo "Update Cancelled"
+        echo "Deleting temporary directory\n"
+        rm -rf tempnodecentre
+        return 
+    fi    
 }
 
 #Verify that Processes are stopped
