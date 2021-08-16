@@ -17,3 +17,4 @@ When doing a new install place the nodeupdate.sh file at the place where you wan
 ```
 sudo sh ./nodeupdate.sh
 ```
+![Icon](https://github.com/akaitrade/Centre-Node-Updater/blob/main/Linux.png?raw=true)
