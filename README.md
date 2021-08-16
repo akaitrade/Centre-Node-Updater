@@ -1,4 +1,4 @@
-# Centre-Node-Updater
+# ![Icon](https://centr.tech/wp-content/uploads/CENTR-Concept-Logo-1.png) Centre-Node-Updater
 Simple console script for updating Credits Node Software
 This script is created so that updating or installing Credits Blockchain node is a lot easier !
 
