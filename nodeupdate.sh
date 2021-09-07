@@ -35,12 +35,12 @@ CreateNode () {
   cd tempnodecentre
   echo "Downloading Latest software"
   curl -s https://api.github.com/repos/CREDITSCOM/node/releases/latest \
-| grep "browser_download_url.*tgz" \
+| grep "browser_download_url.*tar.gz" \
 | cut -d : -f 2,3 \
 | tr -d \" \
 | wget -qi -
   
-  tarball="$(find . -name "Linux_Mainnet*.tgz")"
+  tarball="$(find . -name "Linux_Mainnet*.tar.gz")"
   echo "Latest software is downloaded : $tarball"
   cd ..
   echo "Extracting : $tarball"
