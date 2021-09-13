@@ -77,8 +77,23 @@ UpdateNode () {
         echo "Deleting temporary directory\n"
         rm -rf tempnodecentre
         echo "${WHITE}Updating of the Credits Node is a success !${NC}\n"
-        echo "${WHITE}To Start the node do the following first command: cd $FOLDERNAME${NC}\n"
-        echo "${WHITE}To Start the node do the following second command: ./node${NC}\n"
+        echo "Do you want to delete temporary files yes or no  ?"
+        read answer
+        if [ "$answer" = "yes" ]
+            then
+                echo "Deleting Temporary Files"
+                cd csnode
+                rm banlist.dat
+                rm debug.log
+                rm -r caches
+                rm -r p2p_db
+                echo "Deleted Temporary Files"
+                echo "${WHITE}To Start the node do the following first command: cd $FOLDERNAME${NC}\n"
+                echo "${WHITE}To Start the node do the following second command: ./node${NC}\n"
+            else
+                echo "${WHITE}To Start the node do the following first command: cd $FOLDERNAME${NC}\n"
+                echo "${WHITE}To Start the node do the following second command: ./node${NC}\n" 
+            fi
     else
         echo "Update Cancelled"
         echo "Deleting temporary directory\n"
