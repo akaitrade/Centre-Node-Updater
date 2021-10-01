@@ -10,7 +10,11 @@ If the script detects a Java process open it will ask you if you want to kill th
 
 
 ## How to use
-Please Download the nodeupdate.sh file and place it next the csnode folder so not in the csnode folder.
+Please Download the nodeupdate.sh file and place it next the csnode folder so not IN the csnode folder.
+Downloading:
+```
+wget https://raw.githubusercontent.com/akaitrade/Centre-Node-Updater/main/nodeupdate.sh
+```
 
 When doing a new install place the nodeupdate.sh file at the place where you want to have Credits node installed
 
