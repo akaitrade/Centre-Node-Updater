@@ -40,7 +40,7 @@ CreateNode () {
 | tr -d \" \
 | wget -qi -
   
-  tarball="$(find . -name "Linux_Mainnet*.tar.gz")"
+  tarball="$(find . -name "Ubuntu20_Mainnet*.tar.gz")"
   echo "Latest software is downloaded : $tarball"
   cd ..
   echo "Extracting : $tarball"
