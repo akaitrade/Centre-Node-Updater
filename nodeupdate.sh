@@ -63,7 +63,7 @@ UpdateNode () {
 | cut -d : -f 2,3 \
 | tr -d \" \
 | wget -qi -
-  tarball="$(find . -name "Linux_Mainnet*.tar.gz")"
+  tarball="$(find . -name "Ubuntu20_Mainnet*.tar.gz")"
   echo "Latest software is downloaded : $tarball"
   echo "Do you want to update the node with this version yes or no ? : $tarball"
   read answer
